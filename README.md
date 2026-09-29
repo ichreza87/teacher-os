@@ -1,11 +1,15 @@
 # Teacher OS — AI-Powered Teacher Operating System
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/5026a060-9372-4918-b809-cf487cccbcc0" />
 
-Local-first teacher OS. Satu codebase untuk PAUD/TK/SD/SMP/SMA/SMK.
+
+
+Local-first teacher OS. Satu Aplikasi untuk Guru PAUD/TK/SD/SMP/SMA/SMK.
 
 Panduan: **[docs/MANUAL.md](docs/MANUAL.md)** (manual pengguna + tutorial instalasi lengkap).
 Teknis: `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/AI_ARCHITECTURE.md`, `docs/UX.md`, `docs/SECURITY.md`, `docs/ROADMAP.md`, `docs/AUDIT.md`.
 
 ## Instalasi Cepat (5 menit, tanpa database)
+<img width="1906" height="803" alt="image" src="https://github.com/user-attachments/assets/0eaefa25-eb7b-460a-93b8-e0fc4d662ce6" />
 
 Prasyarat: Node.js 20+ dan npm 10+ (`node -v`, `npm -v`).
 
