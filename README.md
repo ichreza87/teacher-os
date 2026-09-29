@@ -23,6 +23,7 @@ npm run dev -- --port 3100
 
 Buka `http://localhost:3100/login` → **Masuk Demo** (user `admin`, password `admin`).
 Mode demo memakai data contoh; cocok untuk menjelajah seluruh tampilan.
+<img width="1254" height="1254" alt="image" src="https://github.com/user-attachments/assets/49c5deee-6140-4549-9c4c-75e552c0d814" />
 
 ## Instalasi Penuh (dengan database)
 
