@@ -2,27 +2,40 @@
 
 Local-first teacher OS. Satu codebase untuk PAUD/TK/SD/SMP/SMA/SMK.
 
-Docs: `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/AI_ARCHITECTURE.md`, `docs/UX.md`, `docs/SECURITY.md`, `docs/ROADMAP.md`.
+Panduan: **[docs/MANUAL.md](docs/MANUAL.md)** (manual pengguna + tutorial instalasi lengkap).
+Teknis: `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/AI_ARCHITECTURE.md`, `docs/UX.md`, `docs/SECURITY.md`, `docs/ROADMAP.md`, `docs/AUDIT.md`.
+
+## Instalasi Cepat (5 menit, tanpa database)
+
+Prasyarat: Node.js 20+ dan npm 10+ (`node -v`, `npm -v`).
+
+```bash
+git clone https://github.com/ichreza87/teacher-os.git
+cd teacher-os
+cp .env.example .env
+npm install
+npm run dev -- --port 3100
+```
+
+Buka `http://localhost:3100/login` → **Masuk Demo** (user `admin`, password `admin`).
+Mode demo memakai data contoh; cocok untuk menjelajah seluruh tampilan.
+
+## Instalasi Penuh (dengan database)
+
+1. Buat project gratis di [supabase.com](https://supabase.com) → salin
+   Project URL, anon key, dan connection string (Settings → Database).
+2. Di Supabase Dashboard → Database → Extensions: aktifkan **vector**.
+3. Isi `.env`: `DATABASE_URL`, `NEXT_PUBLIC_SUPABASE_URL`,
+   `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
+4. `npm run db:setup` (migrasi 01–06 + seed dummy, idempoten).
+5. Buat 3 auth user di Supabase Dashboard (Authentication → Add user), klaim guru seed:
+   `update teachers set user_id = '<auth-uuid>' where id = '<teacher-uuid>';`
+6. `npm run dev -- --port 3100` → login dengan email terdaftar
+   (atau akun `@...belajar.id` bila provider Google dikonfigurasi, lihat bawah).
 
 ## Requirements
 
 Node 20+, npm 10+, Supabase project (atau lokal), S3-compatible (opsional dev).
-
-## Local dev
-
-```bash
-cp .env.example .env
-npm install
-npm run dev
-```
-
-Buka `http://localhost:3100` (port 3000 sering dipakai aplikasi lain).
-
-Tanpa Supabase, gunakan **login ujicoba** di halaman `/login` — user `admin`,
-password `admin`. Aktif by default di development (`DEMO_MODE=true` di `.env.example`;
-matikan dengan `DEMO_MODE=false`). Mode demo memakai data contoh dengan banner
-yang jelas dan sesi cookie HMAC httpOnly 7 hari; di production default mati
-kecuali `DEMO_MODE=true` + `APP_ENCRYPTION_KEY` terisi.
 
 ## Login Belajar.id
 
